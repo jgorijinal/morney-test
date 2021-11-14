@@ -19,11 +19,9 @@ export default {
 .nav-wrapper {
   display: flex;
   flex-direction: column;
-  border: 1px solid green;
   height:100vh;
 }
 .content {
-  border: 1px solid blue;
   flex-grow: 1;
   overflow: auto;
 }
