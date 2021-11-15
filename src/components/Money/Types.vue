@@ -7,36 +7,55 @@
   </div>
 </template>
 
-<script lang="js">
-export default {
-  name: "types",
-  props:['xxx'],
-  data(){
-    return{
-      type:'-', // '-'表示支出,'+'表示收入
+<script lang="ts">
+import Vue from 'vue';
+import {Component} from 'vue-property-decorator';
+
+@Component({
+  props:{
+    propMessage:String
+  }
+})
+export default class Types extends Vue {
+  helloMsg = this.propMessage
+  type = '-';// '-'表示支出,'+'表示收入
+  selectType(type: string) {
+    if (type !== '-' && type !== '+') {
+      throw  new Error('type is unknown');
     }
-  },
-  mounted(){
-    console.log(this.xxx)
-  },
-  methods:{
-    selectType(type){
-      if(type !== '-' && type !== '+'){
-        throw  new Error('type is unknown')
-      }
-      this.type = type
-    }
+    this.type = type;
   }
 }
+// export default {
+//   name: "types",
+//   props:['xxx'],
+//   data(){
+//     return{
+//       type:'-', // '-'表示支出,'+'表示收入
+//     }
+//   },
+//   mounted(){
+//     console.log(this.xxx)
+//   },
+//   methods:{
+//     selectType(type){
+//       if(type !== '-' && type !== '+'){
+//         throw  new Error('type is unknown')
+//       }
+//       this.type = type
+//     }
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>
-.types{
+.types {
   background: #c4c4c4;
   display: flex;
   font-size: 18px;
-  > li{
-    width:50%;
+
+  > li {
+    width: 50%;
     text-align: center;
     line-height: 64px;
     display: flex;
@@ -44,14 +63,15 @@ export default {
     align-items: center;
     position: relative;
   }
-  .selected::after{
+
+  .selected::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width:100%;
-    height:4px;
-    background:black ;
+    width: 100%;
+    height: 4px;
+    background: black;
   }
 
 }
