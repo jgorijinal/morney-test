@@ -25,7 +25,7 @@ export default {
 @import '~@/assets/styles/helper.scss';
 nav {
   display: flex;
-  box-shadow: 0 0 3px grey ;
+  @extend %outerShadow;
   > .item {
     padding:2px 0 ;
   width: 33.333333333333%;

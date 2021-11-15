@@ -1,6 +1,6 @@
 <template>
   <div class="nav-wrapper">
-    <div class="content">
+    <div class="content" :class="classPrefix && `${classPrefix}-content`">
       <slot></slot>
     </div>
     <div>
@@ -11,11 +11,21 @@
 
 <script>
 export default {
-  name: "Layout"
+  name: "Layout",
+  props:['classPrefix']
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+.xxx { //
+  border: 1px solid red;
+}
+.nav-wrapper{
+  overflow: auto;
+}
+</style>
+
+<style lang="scss" scoped>
 .nav-wrapper {
   display: flex;
   flex-direction: column;
