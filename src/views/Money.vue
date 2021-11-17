@@ -1,8 +1,8 @@
 <template>
   <Layout class-prefix="xxx">
-    <Tags/>
+    <Tags :data-source="tags"/>
     <Notes/>
-    <Types/>
+    <Types />
     <NumberPad/>
   </Layout>
 </template>
@@ -15,7 +15,12 @@ import Types from "@/components/Money/Types";
 import NumberPad from "@/components/Money/NumberPad";
 export default {
   name: "Money",
-  components: {NumberPad, Types, Notes, Tags}
+  components: {NumberPad, Types, Notes, Tags},
+  data(){
+    return{
+      tags:['衣','食','住','行']
+    }
+  }
 }
 </script>
 

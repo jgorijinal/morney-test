@@ -2,7 +2,7 @@
   <div>
     <label class="notes">
       <span class="name">备注</span>
-      <input @input="onInput" type="text" placeholder="在这里添加备注">
+      <input @input="onInput" :value="value" type="text" placeholder="在这里添加备注">
     </label>
   </div>
 </template>
@@ -14,8 +14,8 @@ import {Component} from 'vue-property-decorator';
 export default class Types extends Vue {
 value:string = ''
 onInput(event:InputEvent){
-  const input = (event.target as HTMLInputElement).value
-  this.value = input
+  const inputValue = (event.target as HTMLInputElement).value
+  this.value = inputValue
 }
 }
 </script>
