@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {Component} from 'vue-property-decorator';
+import {Component,Watch} from 'vue-property-decorator';
 @Component
 export default class Types extends Vue {
 value:string = ''
@@ -17,6 +17,11 @@ onInput(event:InputEvent){
   const inputValue = (event.target as HTMLInputElement).value
   this.value = inputValue
 }
+  @Watch('value') //侦听 this.value,又$emit
+  onValueChanged(value: string, oldValue: string) {
+    this.$emit('update:value',value)
+  }
+
 }
 </script>
 

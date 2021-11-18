@@ -2,17 +2,17 @@
   <div class="numberPad">
     <div class="output">{{ output }}</div>
     <div class="buttons">
-      <button @click="inputContent">1</button>
-      <button @click="inputContent">2</button>
-      <button @click="inputContent">3</button>
+      <button @click="inputContent">7</button>
+      <button @click="inputContent">8</button>
+      <button @click="inputContent">9</button>
       <button>+</button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
       <button>-</button>
-      <button @click="inputContent">7</button>
-      <button @click="inputContent">8</button>
-      <button @click="inputContent">9</button>
+      <button @click="inputContent">1</button>
+      <button @click="inputContent">2</button>
+      <button @click="inputContent">3</button>
       <button @click="ok" class="ok">OK</button>
       <button @click="inputContent">.</button>
       <button @click="inputContent">0</button>
@@ -62,7 +62,10 @@ export default class Types extends Vue {
 
   }
   ok(){
-
+    if(this.output.indexOf('.') === this.output.length-1){
+      this.output = this.output.slice(0,this.output.indexOf('.'))
+    }
+   this.$emit('update:value',this.output)
   }
 }
 </script>
