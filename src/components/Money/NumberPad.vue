@@ -66,6 +66,8 @@ export default class Types extends Vue {
       this.output = this.output.slice(0,this.output.indexOf('.'))
     }
    this.$emit('update:value',this.output)
+    this.$emit('submit',this.output)
+    this.output = '0'
   }
 }
 </script>

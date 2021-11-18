@@ -16,13 +16,18 @@ export default {
 }
 </script>
 
+
+<style>
+
+
+</style>
 <style lang="scss">
-.xxx { //
-  border: 1px solid red;
-}
-.nav-wrapper{
-  overflow: auto;
-}
+//.xxx {
+//  border: 1px solid red;
+//}
+//.nav-wrapper{
+//  overflow: auto;
+//}
 </style>
 
 <style lang="scss" scoped>
