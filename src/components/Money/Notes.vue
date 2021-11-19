@@ -1,15 +1,15 @@
 <template>
   <div>
     <label class="notes">
-      <span class="name">备注</span>
-      <input @input="onInput" :value="value" type="text" placeholder="在这里添加备注">
+      <span class="name">{{fieldName}}</span>
+      <input @input="onInput" :value="value" type="text" :placeholder="placeholder">
     </label>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import {Component,Watch} from 'vue-property-decorator';
+import {Component, Prop, Watch} from 'vue-property-decorator';
 @Component
 export default class Types extends Vue {
 value:string = ''
@@ -21,7 +21,8 @@ onInput(event:InputEvent){
   onValueChanged(value: string, oldValue: string) {
     this.$emit('update:value',value)
   }
-
+@Prop() fieldName!:string
+  @Prop() placeholder!:string
 }
 </script>
 
