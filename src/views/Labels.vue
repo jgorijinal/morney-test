@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="newTag">
-      <button @click="createTag">新建标签</button>
+      <Button @click="createTag">新建标签</Button>
     </div>
   </Layout>
 </template>
@@ -40,6 +40,7 @@ export default class Labels extends Vue {
 <style lang="scss" scoped>
 .tags {
   font-size: 16px;
+  background: white;
 
   > .tag {
     min-height: 44px;
@@ -53,8 +54,7 @@ export default class Labels extends Vue {
 }
 
 .newTag {
-  display: flex;
-  justify-content: center;
+ text-align: center;
 
   button {
     border: none;

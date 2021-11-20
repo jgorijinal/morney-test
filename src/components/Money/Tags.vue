@@ -1,10 +1,10 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li v-for="tag in dataSource" :key="tag"
-          :class="selectedTags.indexOf(tag)>=0 && 'selected'"
+      <li v-for="tag in dataSource" :key="tag.id"
+          :class="{selected:selectedTags.indexOf(tag)>=0}"
            @click="toggle(tag)">
-        {{tag}}
+        {{tag.name}}
       </li>
     </ul>
     <div class="new">
@@ -46,6 +46,7 @@
 
 <style lang="scss" scoped>
 .tags {
+  background: white;
   font-size: 14px;
   padding:16px;
   flex-grow: 1;
