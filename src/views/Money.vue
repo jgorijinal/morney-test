@@ -53,13 +53,11 @@ export default class Money extends Vue {
   }
 
   saveRecord() {
-    const recordClone = recordListModel.clone(this.record);
-    recordClone.createAt = new Date();
-    this.recordList.push(recordClone);
+    recordListModel.create(this.record)
   }
   @Watch('recordList')
   onRecordListChange(){
-    recordListModel.save(this.recordList);
+    recordListModel.save();
   }
 }
 </script>
