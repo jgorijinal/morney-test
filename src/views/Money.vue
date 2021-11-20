@@ -27,7 +27,7 @@ const tagList = tagListModel.fetch()
 })
 export default class Money extends Vue {
   tags = tagList
-  record: recordItem = {
+  record: RecordItem = {
     tags: [],
     notes: '',
     type: '-',

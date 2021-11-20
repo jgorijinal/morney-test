@@ -18,9 +18,9 @@ export default class FormItem extends Vue {
 //   const inputValue = (event.target as HTMLInputElement).value
 //   this.value = inputValue
 // }
-  @Watch('value') //侦听 this.value,又$emit
+ // @Watch('value') //侦听 this.value,又$emit
   onValueChanged(value: string) {
-    this.$emit('update:value', value);
+      this.$emit('update:value', value);
   }
 
   @Prop() fieldName!: string;
