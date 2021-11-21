@@ -14,6 +14,26 @@ Vue.component('Layout',Layout)
 Vue.component('Icon',Icon)
 
 window.tagList  =  tagListModel.fetch()
+window.findTag = (id:string)=>{
+  return window.tagList.filter(t => t.id === id)[0]
+}
+window.createTag = (name:string)=>{
+  const message = tagListModel.create(name);
+  if (message === 'duplicated') {
+    window.alert('标签名已存在,请重新输入');
+  } else if (message === 'success') {
+    window.alert('新的标签已添加成功');
+  }else if(message ==='long'){
+    window.alert('您输入的标签名过长(不超过4个汉字),请重新输入')
+  }
+}
+window.removeTag = (id:string)=> {
+  return tagListModel.remove(id);
+}
+window.updateTag = (id:string,name:string)=>{
+  return tagListModel.update(id, name)
+}
+
 new Vue({
   router,
   store,

@@ -14,6 +14,7 @@ const tagListModel:TagListModel = {
     create(name){
         const names = this.data.map(item=>item.name)
         if(names.indexOf(name)>=0){return 'duplicated'}
+        else if(name.length > 4){return 'long'}
         const id = createId().toString()
         this.data.push({id:id,name:name})
         this.save()
