@@ -16,16 +16,26 @@
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 
-@Component
-export default class Labels extends Vue {
-  //TODO
-  tags =[]// store.tagList;
+@Component({
 
+})
+export default class Labels extends Vue {
+  get tags(){
+    return this.$store.state.tagList
+  }
+  beforeCreate(){
+    this.$store.commit('fetchTags')
+  }
   createTag() {
-    const name = window.prompt('请输入标签名(不超过4个汉字):');
-    if (name) {
-      //TODO
-      //store.createTag(name)
+    const newTag = window.prompt('请输入新的标签:');
+    if (newTag === '') {
+      window.alert('标签名不能为空');
+    } else if (newTag === null) {
+      return;
+    } else if (newTag!.length > 4) {
+      window.alert('标签名过长(不超过4个汉字),请重新输入');
+    } else {
+      this.$store.commit('createTag',newTag)
     }
   }
 
