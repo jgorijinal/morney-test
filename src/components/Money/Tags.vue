@@ -16,19 +16,20 @@
 <script lang="ts">
 
 import Vue from 'vue';
-import {Component, Prop} from 'vue-property-decorator';
+import {Component,} from 'vue-property-decorator';
 
 @Component({
   computed:{
     tagList(){
-   // return this.$store.fetchTags()
-      return []
+     return this.$store.state.tagList
     }
   }
 })
 export default class Tags extends Vue {
   selectedTags: string[] = [];
-
+  created(){
+    this.$store.commit('fetchTags')
+  }
   toggle(tag: string) {
     const index = this.selectedTags.indexOf(tag);
     if (index >= 0) {
@@ -48,8 +49,7 @@ export default class Tags extends Vue {
     } else if (newTag!.length > 4) {
       window.alert('标签名过长(不超过4个汉字),请重新输入');
     } else {
-
-   // store.createTag(newTag)
+      this.$store.commit('createTag',newTag)
     }
 
   }
