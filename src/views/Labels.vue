@@ -15,16 +15,17 @@
 <script lang="ts">
 import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
-import tagListModel from '@/models/tagListModel';
 
 @Component
 export default class Labels extends Vue {
-  tags = window.tagList;
+  //TODO
+  tags =[]// store.tagList;
 
   createTag() {
     const name = window.prompt('请输入标签名(不超过4个汉字):');
     if (name) {
-     window.createTag(name)
+      //TODO
+      //store.createTag(name)
     }
   }
 

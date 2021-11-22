@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <ul class="current">
-      <li v-for="tag in dataSource" :key="tag.id"
+      <li v-for="tag in tagList" :key="tag.id"
           :class="{selected:selectedTags.indexOf(tag)>=0}"
           @click="toggle(tag)">
         {{ tag.name }}
@@ -18,9 +18,15 @@
 import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
 
-@Component
+@Component({
+  computed:{
+    tagList(){
+   // return this.$store.fetchTags()
+      return []
+    }
+  }
+})
 export default class Tags extends Vue {
-  @Prop() readonly dataSource: string[] | undefined;  //为什么readonly: dataSource是外部传来的数据 ,我不能更改
   selectedTags: string[] = [];
 
   toggle(tag: string) {
@@ -41,8 +47,9 @@ export default class Tags extends Vue {
       return;
     } else if (newTag!.length > 4) {
       window.alert('标签名过长(不超过4个汉字),请重新输入');
-    } else if (this.dataSource) {
-      this.$emit('update:dataSource', [...this.dataSource, newTag]); //组件不能更改props外部的数据 所以要用外部家.sync,内部用$emit出发这个事件
+    } else {
+
+   // store.createTag(newTag)
     }
 
   }
