@@ -57,8 +57,8 @@ export default class Money extends Vue {
 }
 </script>
 
-<style lang="scss">
-.xxx-content {
+<style lang="scss" scoped>
+ ::v-deep .xxx-content {
   display: flex;
   flex-direction: column;
   //justify-content: flex-end;

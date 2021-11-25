@@ -1,5 +1,5 @@
 <template>
-  <ul class="tabs">
+  <ul class="tabs" :class="{[classPrefix+'-tabs']:classPrefix}">
     <li v-for="item in dataSource"
         :key="item.value"
         :class="{[classPrefix+'-tabs-item']:classPrefix,selected:item.value === value}"
@@ -12,6 +12,7 @@ import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
 
 type DataSourceItem ={ text: string, value: string }
+
 @Component
 export default class Tabs extends Vue {
   @Prop({required: true, type: Array}) dataSource!: DataSourceItem[];

@@ -1,9 +1,14 @@
 type RecordItem = {   // type关键字 声明'类型'
-    tags: string[],
+    tags: Tag[],
     notes: string,
     type: string,
     amount: number,
-    createAt?: Date
+    createAt?: string
+}
+type RootState ={
+    recordList: RecordItem[],
+    tagList: Tag[],
+    currentTag?:Tag
 }
 type Tag ={
     id:string,
